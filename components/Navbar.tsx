@@ -21,22 +21,22 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     }
 
     return (
-        <nav className={cn('container mx-auto flex items-center justify-between p-5 shadow-sm', className)}>
+        <nav className={cn('relative container mx-auto flex items-center justify-between p-8 shadow-sm  bg-white rounded-md', className)}>
             <div className='flex items-center gap-2'>
                 <Image
                     src='/images/Icon.svg'
-                    width={40}
-                    height={40}
+                    width={50}
+                    height={50}
                     alt='logo'
                 />
-                <h2 className='font-bold text-xl text-primary'>ProperLand</h2>
+                <h2 className='font-bold text-2xl text-primary pt-5'>ProperLand</h2>
             </div>
-            <div className='hidden md:flex gap-4 items-center'>
+            <div className='hidden md:flex gap-6 items-center'>
                 {navbarLinks.map((item) => {
                     const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)
                     return (
                         <Link href={item.route} key={item.label} className='flex items-center'>
-                            <p className={cn('text-lg font-semibold font-source hover:text-primary', isActive && 'text-primary')}>
+                            <p className={cn('text-2xl font-kufan text-content hover:text-primary', isActive && 'text-primary')}>
                                 {item.label}
                             </p>
                         </Link>
@@ -48,14 +48,14 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             </div>
             <div className='md:hidden flex items-center'>
                 <button onClick={toggleMenu} className={cn(
-                    'p-2 rounded',
+                    'p-3 rounded',
                     isOpen ? 'bg-secondary text-primary' : 'bg-primary text-white'
                 )}>
                     {isOpen ? <X className='w-6 h-6' /> : <AlignJustify className='w-6 h-6' />}
                 </button>
             </div>
             {isOpen && (
-                <div className='absolute top-16 left-0 w-full bg-white shadow-md md:hidden'>
+                <div className='absolute top-full left-0 w-full bg-white shadow-md md:hidden'>
                     <div className='flex flex-col items-center py-4'>
                         {navbarLinks.map((item) => {
                             const isActive = pathname === item.route || pathname.startsWith(`${item.route}/`)

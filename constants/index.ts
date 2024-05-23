@@ -8,16 +8,16 @@ export const navbarLinks = [
       label: "About",
     },
     {
-      
-      route: "/blog",
-      label: "Blog",
-    },
-    {
       route: "/properties",
       label: "Properties",
     },
     {
-        route: "/pages",
-        label: "Pages",
+      route: "/pages",
+      label: "Pages",
+  },
+    {
+      
+      route: "/blog",
+      label: "Blog",
     },
-  ];
+];
